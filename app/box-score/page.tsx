@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -297,7 +297,7 @@ function WinnerPanel({
   );
 }
 
-export default function BoxScorePage() {
+function BoxScoreContent() {
   const searchParams = useSearchParams();
   const gameId = searchParams.get("game");
 
@@ -402,12 +402,7 @@ export default function BoxScorePage() {
         <WinnerPanel game={game} winner={winner} />
 
         <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <MetricCard
-            icon={Crown}
-            label="MVP"
-            value={game.mvp.name}
-            tone="gold"
-          />
+          <MetricCard icon={Crown} label="MVP" value={game.mvp.name} tone="gold" />
 
           <MetricCard
             icon={Users}
@@ -696,5 +691,13 @@ export default function BoxScorePage() {
         </section>
       </div>
     </AppShell>
+  );
+}
+
+export default function BoxScorePage() {
+  return (
+    <Suspense fallback={null}>
+      <BoxScoreContent />
+    </Suspense>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -621,7 +621,7 @@ function ReadyStatusPanel({
   );
 }
 
-export default function PregamePage() {
+function PregameContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -1007,5 +1007,13 @@ export default function PregamePage() {
         </Link>
       </div>
     </AppShell>
+  );
+}
+
+export default function PregamePage() {
+  return (
+    <Suspense fallback={null}>
+      <PregameContent />
+    </Suspense>
   );
 }

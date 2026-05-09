@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -742,7 +742,7 @@ function EventPopup({ state }: { state: SimulationState }) {
   );
 }
 
-export default function LiveGamePage() {
+function LiveGameContent() {
   const searchParams = useSearchParams();
 
   const gameId = searchParams.get("game");
@@ -1252,5 +1252,13 @@ export default function LiveGamePage() {
         )}
       </div>
     </AppShell>
+  );
+}
+
+export default function LiveGamePage() {
+  return (
+    <Suspense fallback={null}>
+      <LiveGameContent />
+    </Suspense>
   );
 }
