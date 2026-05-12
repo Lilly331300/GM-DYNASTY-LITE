@@ -29,7 +29,6 @@
     font-feature-settings: "tnum" on, "lnum" on;
   }
 
-  /* Custom scrollbar for webkit */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -47,7 +46,6 @@
     @apply bg-text-muted;
   }
 
-  /* Tabular numbers for stats */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
@@ -67,27 +65,19 @@
   }
 
   .btn-primary {
-    @apply bg-wine hover:bg-wine-deep text-white font-semibold px-6 py-3 rounded-lg 
-           transition-all duration-200 hover:shadow-lg hover:shadow-wine/20 
-           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-wine hover:bg-wine-deep text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-wine/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-secondary {
-    @apply bg-navy-secondary hover:bg-navy-border text-text-light font-semibold px-6 py-3 rounded-lg 
-           transition-all duration-200 border border-navy-border 
-           hover:border-gold/30 active:scale-95;
+    @apply bg-navy-secondary hover:bg-navy-border text-text-light font-semibold px-6 py-3 rounded-lg transition-all duration-200 border border-navy-border hover:border-gold/30 active:scale-95;
   }
 
   .btn-gold {
-    @apply bg-gold hover:bg-amber-400 text-navy-primary font-bold px-6 py-3 rounded-lg 
-           transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 
-           active:scale-95;
+    @apply bg-gold hover:bg-amber-400 text-navy-primary font-bold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 active:scale-95;
   }
 
   .input-field {
-    @apply bg-navy-secondary border border-navy-border rounded-lg px-4 py-3 text-text-light 
-           placeholder:text-text-muted focus:outline-none focus:border-electric 
-           focus:ring-1 focus:ring-electric/50 transition-all duration-200;
+    @apply bg-navy-secondary border border-navy-border rounded-lg px-4 py-3 text-text-light placeholder:text-text-muted focus:outline-none focus:border-electric focus:ring-1 focus:ring-electric/50 transition-all duration-200;
   }
 
   .badge {
